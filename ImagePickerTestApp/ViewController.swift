@@ -29,13 +29,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.bottomText?.textAlignment = .center
         self.bottomText?.delegate = bottomTextFieldDelegate
     }
-    
-    
+ 
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
         NSForegroundColorAttributeName: UIColor.white,
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName: Float(3.0)]
+        NSStrokeWidthAttributeName: Float(-3.0)]
 
 
     override func didReceiveMemoryWarning() {
