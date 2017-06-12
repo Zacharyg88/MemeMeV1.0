@@ -10,7 +10,19 @@ import Foundation
 import UIKit
 
 class BottomTextDelegate: NSObject, UITextFieldDelegate {
-  
     
+    //static let viewController = ViewController()
+  
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        //BottomTextDelegate.viewController.subscribeToHideKeyboardNotification()
+        
+        
+        return true
+    }
     
 }

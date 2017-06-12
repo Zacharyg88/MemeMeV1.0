@@ -9,14 +9,24 @@
 import Foundation
 import UIKit
 
+
+
 class TopTextDelegate: NSObject, UITextFieldDelegate{
+    
+   //static let viewController = ViewController()
+    
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
      textField.text = ""
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        //ViewController.subscribeToHideKeyboardNotification()
+        
         return true
     }
+    
+   
     
 }
