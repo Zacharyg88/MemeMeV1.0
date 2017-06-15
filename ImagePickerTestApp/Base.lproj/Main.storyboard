@@ -72,11 +72,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomText" destination="3p7-9k-G4d" id="hO8-gV-PZC"/>
+                        <outlet property="bottomText" destination="3p7-9k-G4d" id="vUb-eT-N3r"/>
                         <outlet property="camera" destination="0ZL-o2-bUK" id="Hv6-9P-4xm"/>
                         <outlet property="imageView" destination="gNK-8p-fcd" id="sRk-aX-viw"/>
                         <outlet property="picker" destination="YrL-Gt-FuZ" id="LqP-yp-elr"/>
-                        <outlet property="topText" destination="nfO-kZ-Cm7" id="IvP-xd-DYr"/>
+                        <outlet property="topText" destination="nfO-kZ-Cm7" id="6HG-My-Ugb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

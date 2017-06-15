@@ -11,10 +11,11 @@ import UIKit
 
 class BottomTextDelegate: NSObject, UITextFieldDelegate {
     
-    //static let viewController = ViewController()
+    static let viewController = ViewController()
   
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
+        textField.becomeFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
