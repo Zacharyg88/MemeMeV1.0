@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ImagePickerTestApp
+//  MemeMeV1.0
 //
 //  Created by Zach Eidenberger on 5/31/17.
 //  Copyright © 2017 ZacharyG. All rights reserved.
