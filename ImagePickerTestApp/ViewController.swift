@@ -15,6 +15,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topText: UITextField?
     @IBOutlet weak var bottomText: UITextField?
     @IBOutlet weak var sharebutton: UIButton?
+    @IBOutlet weak var toolbar: UIToolbar?
+    
     
     
     
@@ -37,13 +39,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
-        //subscribeToHideKeyboardNotification()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubcribeToKeyboardNotificaitons()
-        //unsubscribeToHideKeyboardNotification()
+        
     }
  
     let memeTextAttributes:[String:Any] = [
@@ -71,24 +73,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareMeme (sender: AnyObject) {
         func generateMeme () -> (UIImage) {
-            UIGraphicsBeginImageContext((self.imageView?.frame.size)!)
-            view.drawHierarchy(in: (self.imageView?.frame)!, afterScreenUpdates: true)
+            toolbar?.isHidden = true
+            sharebutton?.isHidden = true
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            view.drawHierarchy(in: (self.view.frame), afterScreenUpdates: true)
             let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
             
+            toolbar?.isHidden = false
+            sharebutton?.isHidden = false
+            
             return memedImage
         }
+        
         var memedImage = generateMeme()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: [])
         self.show(activityController, sender: nil)
-
+        
+        activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError) in
+            save()
+            
+        }
+        
+//        func save() {
+//            let meme = (toptext: topText?.text, bottomText: bottomText?.text, originalImage: imageView?.image, memedImage: generateMeme())
+//        }
         
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            print("check")
             imageView?.image = image
         }
     }
@@ -107,14 +122,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(_ notification: Notification) {
-
+        if (topText?.isEditing)! {
+            view.frame.origin.y = 0.0
+        }else {
         view.frame.origin.y = 0 - getKeyboardHeight(notification)
+    }
     }
     
     func keyboardWillHide (_ notification: Notification) {
        
         view.frame.origin.y = 0.0
-        
+        }
+    
+    func save() {
+        let meme = (toptext: topText?.text, bottomText: bottomText?.text, originalImage: imageView?.image, memedImage: ())
     }
     
     func subscribeToKeyboardNotifications () {
@@ -128,17 +149,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-//    func generateMeme () -> UIImage {
-//        UIGraphicsBeginImageContext((self.imageView?.frame.size)!)
-//        view.drawHierarchy(in: (self.imageView?.frame)!, afterScreenUpdates: true)
-//        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-//        UIGraphicsEndImageContext()
-//        
-//        return memedImage
-//    }
-//    func save() {
-//        let meme = (toptext: topText?.text, bottomText: bottomText?.text, originalImage: imageView?.image, memedImage: generateMeme())
-//    }
 
 }
 

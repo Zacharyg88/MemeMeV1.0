@@ -93,6 +93,7 @@
                         <outlet property="imageView" destination="gNK-8p-fcd" id="sRk-aX-viw"/>
                         <outlet property="picker" destination="YrL-Gt-FuZ" id="LqP-yp-elr"/>
                         <outlet property="sharebutton" destination="fUI-jF-zre" id="JKH-BK-zuo"/>
+                        <outlet property="toolbar" destination="tOz-gY-Nno" id="dGH-n3-jlC"/>
                         <outlet property="topText" destination="nfO-kZ-Cm7" id="6HG-My-Ugb"/>
                     </connections>
                 </viewController>
