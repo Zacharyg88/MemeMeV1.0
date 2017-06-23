@@ -19,6 +19,7 @@ class BottomTextDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("BottomTextDelegate > func textFieldShouldReturn")
         textField.resignFirstResponder()
         //BottomTextDelegate.viewController.subscribeToHideKeyboardNotification()
         

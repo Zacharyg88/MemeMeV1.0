@@ -21,6 +21,7 @@ class TopTextDelegate: NSObject, UITextFieldDelegate{
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("TopTestDelegate > func textFieldShouldReturn")
         textField.resignFirstResponder()
         //ViewController.subscribeToHideKeyboardNotification()
         

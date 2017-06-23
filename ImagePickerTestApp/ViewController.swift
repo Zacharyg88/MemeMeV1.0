@@ -14,6 +14,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var camera: UIBarButtonItem?
     @IBOutlet weak var topText: UITextField?
     @IBOutlet weak var bottomText: UITextField?
+    @IBOutlet weak var sharebutton: UIButton?
+    
+    
     
     let topTextFieldDelegate = TopTextDelegate()
     let bottomTextFieldDelegate = BottomTextDelegate()
@@ -28,6 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.bottomText?.defaultTextAttributes = memeTextAttributes
         self.bottomText?.textAlignment = .center
         self.bottomText?.delegate = bottomTextFieldDelegate
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName: Float(-3.0)]
 
 
-    
+
     @IBAction func pickfromAlbum (sender: AnyObject) {
         let imagepicker = UIImagePickerController()
         imagepicker.delegate = self
@@ -62,6 +66,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         camerapicker.sourceType = .camera
         camerapicker.allowsEditing = false
         self.present(camerapicker, animated: true, completion: nil)
+    }
+
+    
+    @IBAction func shareMeme (sender: AnyObject) {
+        func generateMeme () -> (UIImage) {
+            UIGraphicsBeginImageContext((self.imageView?.frame.size)!)
+            view.drawHierarchy(in: (self.imageView?.frame)!, afterScreenUpdates: true)
+            let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            return memedImage
+        }
+        var memedImage = generateMeme()
+        let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: [])
+        self.show(activityController, sender: nil)
+
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -81,19 +102,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        if (bottomText?.isEditing)! {
             return keyboardSize.cgRectValue.height
-        }else{
-            return 0
-        }
+     
     }
     
     func keyboardWillShow(_ notification: Notification) {
+
         view.frame.origin.y = 0 - getKeyboardHeight(notification)
     }
     
     func keyboardWillHide (_ notification: Notification) {
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+       
+        view.frame.origin.y = 0.0
         
     }
     
@@ -108,22 +128,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    
-    // Hide Keyboard
-    
-//    func keyboardWillHide (_ notification: Notification) {
-//        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+//    func generateMeme () -> UIImage {
+//        UIGraphicsBeginImageContext((self.imageView?.frame.size)!)
+//        view.drawHierarchy(in: (self.imageView?.frame)!, afterScreenUpdates: true)
+//        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
 //        
+//        return memedImage
 //    }
-    
-//    func subscribeToHideKeyboardNotification () {
-//        NotificationCenter.default.addObserver(bottomTextFieldDelegate, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+//    func save() {
+//        let meme = (toptext: topText?.text, bottomText: bottomText?.text, originalImage: imageView?.image, memedImage: generateMeme())
 //    }
-//    
-//    func unsubscribeToHideKeyboardNotification () {
-//        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-//    }
-
 
 }
 
