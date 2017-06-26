@@ -53,7 +53,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSForegroundColorAttributeName: UIColor.white,
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: Float(-3.0)]
-
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        var originalImage: UIImage
+        var memedImage: UIImage
+        
+    }
 
 
     @IBAction func pickfromAlbum (sender: AnyObject) {
@@ -89,17 +95,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var memedImage = generateMeme()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: [])
         self.show(activityController, sender: nil)
+
         
-        activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[AnyObject]?, error: NSError) in
-            save()
+        func save() -> Any{
+            let meme = Meme(topText: (topText?.text)!, bottomText: (bottomText?.text)!, originalImage: (imageView?.image)!, memedImage: generateMeme())
+            print(meme)
+            return meme
+        }
+        
+        activityController.completionWithItemsHandler = {(type: UIActivityType?, completed: Bool, returnedItems:[Any]?, error: Error?) in
+            self.save()
+            print(type)
+            print(completed)
+            print(returnedItems)
             
         }
         
-//        func save() {
-//            let meme = (toptext: topText?.text, bottomText: bottomText?.text, originalImage: imageView?.image, memedImage: generateMeme())
-//        }
-        
     }
+        
+
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
