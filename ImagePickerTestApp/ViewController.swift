@@ -60,6 +60,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var memedImage: UIImage
         
     }
+    var memeArray = [Meme]()
 
 
     @IBAction func pickfromAlbum (sender: AnyObject) {
@@ -88,26 +89,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             toolbar?.isHidden = false
             sharebutton?.isHidden = false
+    
+            print(memeArray)
             
             return memedImage
         }
         
-        var memedImage = generateMeme()
+        let memedImage = generateMeme()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: [])
         self.show(activityController, sender: nil)
 
         
-        func save() -> Any{
-            let meme = Meme(topText: (topText?.text)!, bottomText: (bottomText?.text)!, originalImage: (imageView?.image)!, memedImage: generateMeme())
-            print(meme)
-            return meme
-        }
+      
+        
         
         activityController.completionWithItemsHandler = {(type: UIActivityType?, completed: Bool, returnedItems:[Any]?, error: Error?) in
-            self.save()
-            print(type)
-            print(completed)
-            print(returnedItems)
+            
+             self.memeArray.append(Meme(topText: (self.topText?.text!)!, bottomText: (self.bottomText?.text!)!, originalImage: (self.imageView?.image!)!, memedImage: memedImage))
+            print(self.memeArray)
+           
             
         }
         
