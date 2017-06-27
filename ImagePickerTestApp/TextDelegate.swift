@@ -1,5 +1,5 @@
 //
-//  BottomTextDelegate.swift
+//  TopTextDelegate.swift
 //  ImagePickerTestApp
 //
 //  Created by Zach Eidenberger on 6/5/17.
@@ -9,22 +9,25 @@
 import Foundation
 import UIKit
 
-class BottomTextDelegate: NSObject, UITextFieldDelegate {
+
+
+class TextDelegate: NSObject, UITextFieldDelegate{
     
-    static let viewController = ViewController()
   
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
-        textField.becomeFirstResponder()
-    }
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+     textField.text = ""
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("BottomTextDelegate > func textFieldShouldReturn")
+        print("TopTestDelegate > func textFieldShouldReturn")
         textField.resignFirstResponder()
-        //BottomTextDelegate.viewController.subscribeToHideKeyboardNotification()
         
         
         return true
     }
+    
+   
     
 }

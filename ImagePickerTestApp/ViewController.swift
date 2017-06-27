@@ -20,8 +20,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     
-    let topTextFieldDelegate = TopTextDelegate()
-    let bottomTextFieldDelegate = BottomTextDelegate()
+    let TextFieldDelegate = TextDelegate()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         func configure (textfield: UITextField) {
             textfield.defaultTextAttributes = memeTextAttributes
             textfield.textAlignment = .center
-            if textfield == topText {
-                textfield.delegate = topTextFieldDelegate
-            }
-            if textfield == bottomText {
-                textfield.delegate = bottomTextFieldDelegate
-            }
+            textfield.delegate = TextFieldDelegate
         }
         configure(textfield: topText!)
         configure(textfield: bottomText!)

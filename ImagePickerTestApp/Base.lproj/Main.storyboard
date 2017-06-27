@@ -72,20 +72,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3p7-9k-G4d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="22" id="97q-g8-bbX"/>
-                            <constraint firstItem="gNK-8p-fcd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="C5e-kW-yLJ"/>
-                            <constraint firstItem="tOz-gY-Nno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="KF8-QS-lcC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tOz-gY-Nno" secondAttribute="bottom" id="SIw-46-WRz"/>
-                            <constraint firstItem="3p7-9k-G4d" firstAttribute="top" secondItem="gNK-8p-fcd" secondAttribute="bottom" constant="-82" id="UKg-ZE-9Xl"/>
-                            <constraint firstItem="nfO-kZ-Cm7" firstAttribute="trailing" secondItem="gNK-8p-fcd" secondAttribute="trailing" constant="-22" id="XTE-HJ-fjR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tOz-gY-Nno" secondAttribute="trailing" constant="-14" id="fkD-d5-fsr"/>
-                            <constraint firstItem="gNK-8p-fcd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gDS-zK-zPz"/>
-                            <constraint firstItem="nfO-kZ-Cm7" firstAttribute="leading" secondItem="gNK-8p-fcd" secondAttribute="leading" constant="21" id="hjQ-3W-zJc"/>
-                            <constraint firstItem="3p7-9k-G4d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kHe-iX-oXy"/>
-                            <constraint firstItem="tOz-gY-Nno" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="603" id="kzL-pA-hWv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3p7-9k-G4d" secondAttribute="trailing" constant="21" id="mps-f8-Smh"/>
-                            <constraint firstItem="gNK-8p-fcd" firstAttribute="leading" secondItem="3p7-9k-G4d" secondAttribute="trailing" constant="-321" id="xPm-Nl-u0m"/>
-                            <constraint firstItem="gNK-8p-fcd" firstAttribute="top" secondItem="nfO-kZ-Cm7" secondAttribute="bottom" constant="-69" id="zpV-Xk-BMH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gNK-8p-fcd" secondAttribute="bottom" constant="69" id="D3f-qz-F5Y"/>
+                            <constraint firstItem="nfO-kZ-Cm7" firstAttribute="top" secondItem="gNK-8p-fcd" secondAttribute="top" constant="52" id="DuH-xk-yid"/>
+                            <constraint firstItem="nfO-kZ-Cm7" firstAttribute="leading" secondItem="gNK-8p-fcd" secondAttribute="leading" constant="21" id="EJb-nK-D4o"/>
+                            <constraint firstItem="gNK-8p-fcd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1" id="Fbp-FI-dSz"/>
+                            <constraint firstItem="3p7-9k-G4d" firstAttribute="bottom" secondItem="gNK-8p-fcd" secondAttribute="bottom" constant="-29" id="Myw-Kj-Vfk"/>
+                            <constraint firstItem="gNK-8p-fcd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="OkW-eh-byT"/>
+                            <constraint firstItem="nfO-kZ-Cm7" firstAttribute="trailing" secondItem="gNK-8p-fcd" secondAttribute="trailing" constant="-22" id="Qxw-1u-mjQ"/>
+                            <constraint firstItem="tOz-gY-Nno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aSB-E3-vpT"/>
+                            <constraint firstItem="3p7-9k-G4d" firstAttribute="leading" secondItem="gNK-8p-fcd" secondAttribute="leading" constant="21" id="hka-KN-y21"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gNK-8p-fcd" secondAttribute="trailing" constant="-1" id="qsl-JO-ayY"/>
+                            <constraint firstItem="tOz-gY-Nno" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="rak-So-etr"/>
+                            <constraint firstItem="3p7-9k-G4d" firstAttribute="trailing" secondItem="gNK-8p-fcd" secondAttribute="trailing" constant="-22" id="sTJ-hY-HxF"/>
                         </constraints>
                     </view>
                     <connections>
