@@ -13,7 +13,7 @@ import UIKit
 
 class TopTextDelegate: NSObject, UITextFieldDelegate{
     
-   //static let viewController = ViewController()
+  
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -23,7 +23,7 @@ class TopTextDelegate: NSObject, UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("TopTestDelegate > func textFieldShouldReturn")
         textField.resignFirstResponder()
-        //ViewController.subscribeToHideKeyboardNotification()
+        
         
         return true
     }
